@@ -1,0 +1,69 @@
+What is meant by Good Hash function?
+1. Efficient computable.
+2. Should uniformly distribute keys.
+
+
+I. Hashing by Division
+ 1) Mod method : 
+    Remainder used for storing the data values. (key % tableSize).
+    By doing this Hash function, many keys can have same hash. This is called COLLISION.
+
+ 2) Multiplication Method: 
+    In multiplication method, we multiply the key k by a constant real number c
+    in the range 0 < c < 1 and extract the fractional part of k * c. Multiply this
+    value by table_size m and take floor of the result.
+
+    h(k) = floor(m * frac(k*c));
+
+EXAMPLE: Hashing a phone number
+1. If we use array or linked list to hash a phone number, we need to do linear search.
+   - If the phone number are sorted then a binary search in array would take O(logn). But 
+     insert and delete takes much time.
+   - To avoid these we can use balanced binary search tree, it gives gauranteed O(logn) on
+     all operations.
+   - Direct Access Table can't be always used.
+   - Hashing is a common technique to store and retrieve data as fast as possible.
+   - Hashing can do all the things in O(n) time but the worst case still remains O(n).
+
+2. Basic Operation:
+   HashTable - Used to create a new HashTable.
+   Delete - Used to delete particular key-value pair.
+   Get - The operation is used in order to search a key inside the hash table and return the value that is associated with that key.
+   Put - This operation is used in order to insert a new key-value air inside the hash table.
+   DeleteHashTable - This operation is used in order to delete the hash table.
+
+Hashing Components:
+1) Hash Table:
+   An array that stores pointers to records corresponding to a given phone number.An entry in hash table is NIL if no existing 
+   phone number has hash function value equal to the index for the entry. 
+
+2) Hash Functions: 
+   A function that converts a given big phone number to a small practical integer value. The mapped integer value is used as an
+   an index in HashTable. If every key is mapped into a unique slot index, it is called a "Perfect Hash Function".
+
+3) Collision Handling:
+   The situation where a newly inserted key maps to an already occupied slot in hash table is called collision.
+
+   Collision Handling Techniques:
+   1. Chaining: It requires additional memory outside the HashTable. Connect each HashEntry to a Linked List.
+   2. Open Addressing: All elements are stored in the hash itself. Each entry contains record or NIL. While searching
+                       go through all the entries one by one. Used when number of entries known.
+
+Separate Chaining: Cache performance is not as good as Open Addressing. Wastage of space. Some parts of HashTable never used.
+                   Uses extra space for linking. If linked list become large search time becomes O(n).
+
+
+OPEN ADDRESSING: 
+
+a) Linear Probing: 
+   If hash(x) % S is full then we try (hash(x) + 1) % S, if that is full then (hash(x) + 2) % S and so on.
+
+   Challanges in LP:
+      - Many consecutive elements from group and it takes time to find free slot or search an element.
+      
+b) Quadratic Probing:
+   If hash(x) % S is full then we try (hash(x) + i^2) % S, here i increment from 1 after each collision.
+
+c) Double Hashing:
+   If hash(x) % S is full then we try (hash(x) + 1*hash2(x)) %S then, (hash(x) + 2*hash2(x)) % S and so on.
+   It has poor cache performance but better at handling clustring. It requires more computation time.
