@@ -1,0 +1,33 @@
+Uses LIFO: Last In Fist Out
+
+OPERATIONS:
+push(), pop(), isEmpty(), peek()
+
+Time-Complexity for all operations is O(1).
+
+Types of Stack:
+1. Register Stack: The height of this stack is limited and can handle few data only.
+2. Memory Stack: Can handle a large amount of memory data. The height of memory stack is flexible as 
+                 it occupies a large amount of memory data.
+
+Application of stack:
+1. Balancing of Symbols
+2. Infix, Postfix and Prefix
+3. Redo-undo features in editor or photoshop
+4. Forward and Backward feature in Web-Browser
+5. Backtracking
+6. Memory Management uses stack as it's primary management for running purpose
+7. String Reversal
+8. Matching tags in HTML and XML
+
+Advantages of Stack:
+1. Linked List implementation of stack can grow and shrink according to the needs at runtime.
+2. It is used in many virtual machines like JVM.
+3. Stacks are more secure and reliable as they do not get corrupted easily.
+4. Stack cleans up the objects automatically.
+
+Disadvantages of Stack:
+1. Requires extra money due to involvement of pointers.
+2. Random accessing is not possible in stack.
+3. The total size of stack must be defined before.
+4. If stack falls outside memory it can lead to abnormal termination.
